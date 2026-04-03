@@ -1,0 +1,225 @@
+/* Fonts */
+
+.pt-sans-regular {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.pt-sans-bold {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.pt-sans-regular-italic {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.pt-sans-bold-italic {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* Back to commands */
+
+body {
+    font-family: "PT Sans", sans-serif;
+    background: linear-gradient(90deg, #46A098 0%, #54A654 100%);
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* *************** header & nav ****************** */
+/* Step: 1 Style the default/showing state. Starting with the mobile view, style the layout and links for how they will look when visible */
+header {
+    background-color: #9846A0;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.menu a:hover,
+.menu a:active {
+    background-color: #A258A9;
+}
+
+main,
+h2,
+p {
+    text-transform: none;
+}
+
+.toggle-btn {
+    background-color: #9846A0;
+    border: none;
+    outline: none;
+}
+
+.toggle-btn:hover {
+    cursor: pointer;
+}
+
+.menu li {
+    /* the extra space from the additional line height, makes this a larger area and vertically centers the text */
+    line-height: 2.5rem;
+    text-align: center;
+    background-color: #9846A0;
+}
+
+nav {
+    text-align: center;
+}
+
+/* Step 2: Now let's hide the menu. Once it's hidden this is the default load stage. If using display: none; - that property cannot be transitioned. */
+
+header nav {
+    position: absolute;
+    top: 4.125rem;
+    left: 0;
+    width: 100vw;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out;
+}
+
+/* Step 3: Create a special class that will show the menu. This class name exists only in the CSS file for now. Next the javascript will add this class to the nav element for us. Let's go and do that in the main.js file */
+.show-nav {
+    max-height: 100vh;
+}
+
+/* ************************* section ****************** */
+
+section {
+    padding: 3.125rem;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+section p {
+    color: #fff;
+    padding-bottom: .625rem;
+    margin-bottom: .625rem;
+    font-size: 1.777rem;
+}
+
+section h2 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+
+Section span {
+    font-family: "PT Sans", sans-serif;
+    font-weight: bold;
+}
+
+.shopping-cart a {
+    position: fixed;
+    top: 40px;
+    right: 60px;
+}
+
+/* Step 4: add a media query and show the nav by default (hide the toggle button) and style it as a horizontal nav */
+
+@media only screen and (min-width: 37.5rem) {
+    .inner-container {
+        max-width: 64rem;
+        margin: auto;
+
+        .toggle-btn {
+            position: absolute;
+            left: 16px;
+        }
+
+        .flex-container {
+            display: flex;
+            position: absolute;
+            justify-content: space-evenly;
+        }
+
+    }
+
+    /* we want to see the nav by default, so give it a height back */
+
+    header nav {
+        position: static;
+        width: auto;
+        max-height: unset;
+        overflow: visible;
+    }
+
+
+    .menu,
+    header .inner-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .menu li {
+        margin-left: 0.5rem;
+        align-self: center;
+    }
+
+    .menu li a {
+        padding: 0 0.5rem;
+        margin-top: 2.5rem;
+    }
+
+    .menu a:hover,
+    .menu a:active {
+        background-color: #A258A9;
+        color: #fff;
+    }
+}
+
+button {
+    background-color: #9846A0;
+    color: #fff;
+    padding: .75rem 1.5rem;
+    border-style: none;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #A258A9;
+}
+
+
+@media only screen and (min-width: 750px) {
+    .toggle-btn {
+        visibility: hidden;
+    }
+
+    .flex-container img {
+        position: fixed;
+        top: 40px;
+        left: 50px;
+    }
+    .flex-container ul {
+        position: fixed;
+        top: 20px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .toggle-btn {
+        visibility: hidden;
+    }
+
+}
